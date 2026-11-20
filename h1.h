@@ -1,5 +1,5 @@
-#ifndef LAB4_H1_H_
-#define LAB4_H1_H_
+#ifndef LAB4_POINT_H_
+#define LAB4_POINT_H_
 
 #include <iostream>
 
@@ -9,10 +9,10 @@ class Point {
   Point(double x, double y);
   Point(const Point& other);
 
-  double x() const { return x_; }
-  double y() const { return y_; }
-  void set_x(double x) { x_ = x; }
-  void set_y(double y) { y_ = y; }
+  double x() const;
+  double y() const;
+  void set_x(double x);
+  void set_y(double y);
 
   // Task 1
   double DistanceToOrigin() const;
@@ -37,4 +37,4 @@ class Point {
   double y_;
 };
 
-#endif  // LAB4_H1_H_
+#endif  // LAB4_POINT_H_
