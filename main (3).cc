@@ -4,52 +4,7 @@
 #include <sstream>
 #include <string>
 
-#include "h1.h"
-
-Point::Point() : x_(0), y_(0) {}
-
-Point::Point(double x, double y) : x_(x), y_(y) {}
-
-Point::Point(const Point& other) : x_(other.x_), y_(other.y_) {}
-
-double Point::DistanceToOrigin() const { return std::sqrt(x_ * x_ + y_ * y_); }
-
-Point& Point::operator--() {
-  x_ = x_ - 1;
-  y_ = y_ - 1;
-  return *this;
-}
-
-Point Point::operator--(int) {
-  Point old(*this);
-  x_ = x_ - 1;
-  y_ = y_ - 1;
-  return old;
-}
-
-Point& Point::operator-() {
-  double temp = x_;
-  x_ = y_;
-  y_ = temp;
-  return *this;
-}
-
-Point::operator int() const { return static_cast<int>(x_); }
-
-Point::operator double() const { return y_; }
-
-Point Point::operator-(int number) const { return Point(x_ - number, y_); }
-
-double Point::operator-(const Point& other) const {
-  double dx = x_ - other.x_;
-  double dy = y_ - other.y_;
-  return std::sqrt(dx * dx + dy * dy);
-}
-
-std::ostream& operator<<(std::ostream& out, const Point& point) {
-  out << "(" << point.x_ << ", " << point.y_ << ")";
-  return out;
-}
+#include "point.h"
 
 namespace {
 
@@ -78,7 +33,7 @@ bool ReadLine(const std::string& prompt, std::string* line) {
   return static_cast<bool>(std::getline(std::cin, *line));
 }
 
-// Task 1
+// Task 1.
 bool RunTask1() {
   std::cout << "Task 1\n";
   Point default_point;
@@ -114,7 +69,7 @@ bool RunTask1() {
   }
 }
 
-// Task 2
+// Task 2.
 bool RunTask2() {
   std::cout << "\nTask 2\n";
   while (true) {
